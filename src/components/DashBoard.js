@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { Col, Row, Container, Button } from 'react-bootstrap';
 import facade from '../apiFacade';
 import UserInfo from './UserInfo';
-import RemoteServerFetch from './RemoteServerFetch';
+import AddBook from './AddBook';
 import { useHistory } from 'react-router-dom';
+import AllBooks from './AllBooks';
 
 function DashBoard(props) {
   const history = useHistory();
@@ -33,7 +34,10 @@ function DashBoard(props) {
           <UserInfo />
         </Col>
         <Col>
-          <RemoteServerFetch />
+          <AddBook />
+        </Col>
+        <Col>
+          <AllBooks />
         </Col>
       </Row>
     </Container>

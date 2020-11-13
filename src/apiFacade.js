@@ -33,6 +33,7 @@ function apiFacade() {
     if (token) {
       decoded = jwt_decode(token);
     }
+    console.log(decoded);
     return decoded;
   };
 
@@ -55,6 +56,9 @@ function apiFacade() {
     const options = makeOptions(httpMethod, true); //True add's the token
     return fetch(URL + endpoint, options).then(handleHttpErrors);
   };
+  const fetchWithOptions = (endpoint, options) => {
+    return fetch(URL + endpoint, options).then(handleHttpErrors);
+  }
   const makeOptions = (method, addToken, body) => {
     var opts = {
       method: method,
@@ -80,6 +84,7 @@ function apiFacade() {
     logout,
     fetchData,
     getUser,
+    fetchWithOptions,
   };
 }
 const facade = apiFacade();
